@@ -27,6 +27,7 @@ FROM python:3.7.6-alpine3.11
  #RUN addgroup -S jet && adduser -S -G jet jet
  ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
  RUN pip install --no-cache-dir \
+     bcrypt==3.2.2 \
      psycopg2==2.8.4 \
      mysqlclient==1.4.6 \
      pyodbc==4.0.30 \
