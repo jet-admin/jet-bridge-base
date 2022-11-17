@@ -36,6 +36,7 @@ FROM python:3.7.6-alpine3.11
      SQLAlchemy==1.4.27 \
      paramiko==2.8.1 \
      sshtunnel==0.4.0 \
+     graphene==2.1.9 \
      six==1.16.0 \
      pytest==7.1.1 \
      numpy==1.21.6 \
