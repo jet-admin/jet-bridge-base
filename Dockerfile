@@ -22,7 +22,8 @@ RUN apk add --no-cache \
     boost-dev>=1.71.0-r1 \
     cmake>=3.15.5-r0 \
     flex>=2.6.4-r2 \
-    libressl-dev>=3.0.2-r0
+    libressl-dev>=3.0.2-r0 \
+    openssh>=8.1_p1-r1
 
 #RUN addgroup -S jet && adduser -S -G jet jet
 ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
