@@ -70,5 +70,5 @@ RUN mkdir /arrow \
     && python setup.py install \
     && rm -rf /arrow /tmp/apache-arrow.tar.gz
 
-RUN pip install sqlalchemy-bigquery==1.4.3
+RUN pip install sqlalchemy-bigquery==1.4.3 snowflake-sqlalchemy==1.3.4
 RUN printf "[FreeTDS]\nDescription=FreeTDS Driver\nDriver=/usr/lib/libtdsodbc.so\n" > /etc/odbcinst.ini
