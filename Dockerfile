@@ -71,4 +71,16 @@ RUN mkdir /arrow \
     && rm -rf /arrow /tmp/apache-arrow.tar.gz
 
 RUN pip install sqlalchemy-bigquery==1.4.3
+
+RUN mkdir /snowflake \
+    && wget -q https://github.com/snowflakedb/snowflake-connector-python/archive/refs/tags/v2.7.4.zip -O /tmp/snowflake-connector-python.zip \
+    && unzip /tmp/snowflake-connector-python.zip -d /snowflake \
+    && cd /snowflake/snowflake-connector-python-2.7.4 \
+    && ln -s /usr/local/lib/libarrow.so.600 /usr/local/lib/python3.7/site-packages/pyarrow-6.0.1-py3.7-linux-x86_64.egg/pyarrow/libarrow.so.600 \
+    && ln -s /usr/local/lib/libarrow_python.so.600 /usr/local/lib/python3.7/site-packages/pyarrow-6.0.1-py3.7-linux-x86_64.egg/pyarrow/libarrow_python.so.600 \
+    && python setup.py install \
+    && rm -rf /snowflake /tmp/snowflake-connector-python.zip
+
+RUN pip install snowflake-sqlalchemy==1.3.4
+
 RUN printf "[FreeTDS]\nDescription=FreeTDS Driver\nDriver=/usr/lib/libtdsodbc.so\n" > /etc/odbcinst.ini
