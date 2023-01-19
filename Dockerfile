@@ -42,7 +42,9 @@ RUN pip install --no-cache-dir \
     six==1.16.0 \
     pytest==7.1.1 \
     numpy==1.21.6 \
-    cython==0.29.28
+    cython==0.29.28 \
+    sentry-sdk==1.13.0 \
+    aiocontextvars==0.2.2
 
 RUN mkdir /arrow \
     && wget -q https://github.com/apache/arrow/archive/apache-arrow-6.0.1.tar.gz -O /tmp/apache-arrow.tar.gz \
