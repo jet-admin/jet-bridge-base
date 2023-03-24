@@ -86,3 +86,24 @@ RUN mkdir /snowflake \
 RUN pip install snowflake-sqlalchemy==1.3.4
 
 RUN printf "[FreeTDS]\nDescription=FreeTDS Driver\nDriver=/usr/lib/libtdsodbc.so\n" > /etc/odbcinst.ini
+
+RUN apk add --no-cache \
+    libaio>=0.3.112-r1 \
+    libnsl>=1.2.0-r1 \
+    libc6-compat>=1.1.24-r3 && \
+    cd /tmp && \
+    wget -q https://download.oracle.com/otn_software/linux/instantclient/instantclient-basiclite-linuxx64.zip -O /tmp/instantclient-basiclite.zip && \
+    unzip instantclient-basiclite.zip && \
+    mv instantclient*/ /usr/lib/instantclient && \
+    rm instantclient-basiclite.zip && \
+    ln -s /usr/lib/instantclient/libclntsh.so.21.1 /usr/lib/libclntsh.so && \
+    ln -s /usr/lib/instantclient/libocci.so.21.1 /usr/lib/libocci.so && \
+    ln -s /usr/lib/instantclient/libociicus.so /usr/lib/libociicus.so && \
+    ln -s /usr/lib/instantclient/libnnz21.so /usr/lib/libnnz21.so && \
+    ln -s /usr/lib/libnsl.so.2 /usr/lib/libnsl.so.1 && \
+    ln -s /lib/libc.so.6 /usr/lib/libresolv.so.2 && \
+    ln -s /lib64/ld-linux-x86-64.so.2 /usr/lib/ld-linux-x86-64.so.2
+
+ENV LD_LIBRARY_PATH /usr/lib/instantclient
+
+RUN pip install cx_oracle==8.3.0
