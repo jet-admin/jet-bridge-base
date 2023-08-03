@@ -33,7 +33,6 @@ RUN pip install --no-cache-dir \
     mysqlclient==1.4.6 \
     pyodbc==4.0.30 \
     GeoAlchemy2==0.6.2 \
-    shapely==1.8.5 \
     Shapely==1.6.4 \
     cryptography==3.4.1 \
     SQLAlchemy==1.4.27 \
