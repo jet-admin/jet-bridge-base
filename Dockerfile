@@ -72,7 +72,7 @@ RUN mkdir /arrow \
     && python setup.py install \
     && rm -rf /arrow /tmp/apache-arrow.tar.gz
 
-RUN pip install sqlalchemy-bigquery==1.4.3
+RUN pip install sqlalchemy-bigquery==1.4.3 grpcio-status==1.56.2
 
 RUN mkdir /snowflake \
     && wget -q https://github.com/snowflakedb/snowflake-connector-python/archive/refs/tags/v2.7.4.zip -O /tmp/snowflake-connector-python.zip \
