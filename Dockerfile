@@ -107,3 +107,4 @@ RUN apk add --no-cache \
 ENV LD_LIBRARY_PATH /usr/lib/instantclient
 
 RUN pip install cx_oracle==8.3.0
+RUN pip install PyAthena==2.3.2
