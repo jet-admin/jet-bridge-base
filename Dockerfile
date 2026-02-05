@@ -111,3 +111,4 @@ RUN pip install sqlalchemy-cockroachdb==2.0.2
 RUN pip install clickhouse-sqlalchemy==0.2.7
 RUN pip install databricks-sql-connector[sqlalchemy]==2.9.6
 RUN pip install PyAthena==2.25.2
+RUN pip install pgvector==0.1.8
