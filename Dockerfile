@@ -104,7 +104,7 @@ RUN apk add --no-cache \
     ln -s /lib/libc.so.6 /usr/lib/libresolv.so.2 && \
     ln -s /lib64/ld-linux-x86-64.so.2 /usr/lib/ld-linux-x86-64.so.2
 
-ENV LD_LIBRARY_PATH /usr/lib/instantclient
+ENV LD_LIBRARY_PATH=/usr/lib/instantclient
 
 RUN pip install cx_oracle==8.3.0
 RUN pip install sqlalchemy-cockroachdb==2.0.2
